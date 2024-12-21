@@ -1,15 +1,18 @@
-import express from "express";
-import itemRoutes from "./routes/itemRoutes";
-import adminRoutes from "./routes/adminRoutes";
+import express from 'express';
+import adminRoutes from './routes/adminRoutes';
+import userRoutes from './routes/userRoutes';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const port = 3000;
 
+// Middleware
 app.use(express.json());
 
-app.use("/items", itemRoutes);
-app.use("/admin", adminRoutes);
+// Routes
+app.use('/api', adminRoutes);
+app.use('/api', userRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+// Start Server
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
 });

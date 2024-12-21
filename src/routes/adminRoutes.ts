@@ -1,13 +1,16 @@
-import { Router } from "express";
-import { authMiddleware } from "../middlewares/authMiddleware";
-import { addItem, deleteItem, updateItem, updateInventory } from "../controllers/itemController";
+import express from 'express';
+import {
+  addGroceryItem,
+  getAllGroceryItems,
+  updateGroceryItem,
+  deleteGroceryItem,
+} from '../controllers/adminController';
 
-const router = Router();
+const router = express.Router();
 
-// Admin Routes
-router.post("/admin/items", authMiddleware, addItem);
-router.delete("/admin/items/:id", authMiddleware, deleteItem);
-router.put("/admin/items/:id", authMiddleware, updateItem);
-router.put("/admin/items/:id/inventory", authMiddleware, updateInventory);
+router.post('/admin/items', addGroceryItem);
+router.get('/admin/items', getAllGroceryItems);
+router.put('/admin/items', updateGroceryItem);
+router.delete('/admin/items/:id', deleteGroceryItem);
 
 export default router;

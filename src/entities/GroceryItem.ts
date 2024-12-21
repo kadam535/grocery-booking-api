@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
-
+import { DataSource } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 @Entity()
 export class GroceryItem {
   @PrimaryGeneratedColumn()
@@ -8,12 +8,9 @@ export class GroceryItem {
   @Column()
   name: string;
 
-  @Column("decimal")
+  @Column()
   price: number;
 
   @Column()
-  description: string;
-
-  @Column("int")
   inventory: number;
 }

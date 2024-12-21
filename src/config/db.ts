@@ -1,13 +1,15 @@
-import "reflect-metadata";
-import { DataSource } from "typeorm";
+import { DataSource } from 'typeorm';
+import { GroceryItem } from './models/GroceryItem';
 
-export const AppDataSource = new DataSource({
-  type: "postgres",
-  host: "localhost",
+const dataSource = new DataSource({
+  type: 'postgres',
+  host: 'localhost',
   port: 5432,
-  username: "your-db-username",
-  password: "your-db-password",
-  database: "grocery_booking",
-  entities: [__dirname + "/../entities/**/*.ts"],
+  username: 'postgres',
+  password: 'mastercard#28@@80',
+  database: 'grocery_db',
+  entities: [GroceryItem],
   synchronize: true,
 });
+
+export default dataSource;
